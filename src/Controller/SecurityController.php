@@ -18,8 +18,6 @@ class SecurityController extends AbstractController
      */
     public function login(Request $request)
     {
-        $request = $this->jsonDecode($request);
-
         $user = $this->getUser();
 
         return $this->json(array(
@@ -39,8 +37,6 @@ class SecurityController extends AbstractController
     public function register(Request $request, UserPasswordEncoderInterface $encoder, JWTTokenManagerInterface $JWTManager)
     {
         $em = $this->getDoctrine()->getManager();
-
-        $request = $this->jsonDecode($request);
 
         $username = $request->request->get('username');
         $password = $request->request->get('password');
