@@ -154,6 +154,7 @@ class User implements UserInterface, \JsonSerializable
     public function jsonSerialize()
     {
         return [
+            'id' => $this->getId(),
             'username' => $this->getUsername()
         ];
     }

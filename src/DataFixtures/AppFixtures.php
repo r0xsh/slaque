@@ -23,15 +23,16 @@ class AppFixtures extends Fixture
         // $product = new Product();
         // $manager->persist($product);
 
-        $user = new User();
-        $user->setUsername('admin');
-
-        $password = $this->encoder->encodePassword($user, 'admin');
-        $user->setPassword($password);
-
-        $manager->persist($user);
-        $manager->flush();
-
-        $manager->flush();
+        $users = [
+            'admin', 'antoine', 'valerian', 'ronan', 'louis', 'axel', 'lucas', 'antoine2', 'guillaume'
+        ];
+        foreach ($users as $usern) {
+            $user = new User();
+            $user->setUsername($usern);
+            $password = $this->encoder->encodePassword($user, $usern);
+            $user->setPassword($password);
+            $manager->persist($user);
+            $manager->flush();
+        }
     }
 }

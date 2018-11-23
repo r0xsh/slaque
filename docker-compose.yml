@@ -4,7 +4,7 @@ services:
         build: .docker/apache
         container_name: sf4_apache
         ports:
-          - 80:80
+          - 8082:80
         volumes:
           - .docker/config/vhosts:/etc/apache2/sites-enabled
           - .:/home/wwwroot/sf4
